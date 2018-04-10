@@ -1,6 +1,6 @@
 'use strict';
 
-const API_KEY = 'AIzaSyCz-XXdoMaVM8PXSJ2hUD26718OM2v_i_I';
+//const API_KEY = 'AIzaSyCz-XXdoMaVM8PXSJ2hUD26718OM2v_i_I';
 
 /*
   We want our store to hold a `videos` array of "decorated" objects - i.e. objects that
@@ -20,22 +20,22 @@ const store = {
 
 // TASK: Add the Youtube Search API Base URL here:
 // Documentation is here: https://developers.google.com/youtube/v3/docs/search/list#usage
-const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
+//const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 // TASK:
 // 1. Create a `fetchVideos` function that receives a `searchTerm` and `callback`
 // 2. Use `searchTerm` to construct the right query object based on the Youtube API docs
 // 3. Make a getJSON call using the query object and sending the provided callback in as the last argument
 // TEST IT! Execute this function and console log the results inside the callback.
-const fetchVideos = function(searchTerm, callback) {
-  const query = {
-    part: 'snippet',
-    key: API_KEY,
-    q: searchTerm,
-    type: 'video',
-  };
-  $.getJSON(BASE_URL,query,callback);
-};
+// const fetchVideos = function(searchTerm, callback) {
+//   const query = {
+//     part: 'snippet',
+//     key: API_KEY,
+//     q: searchTerm,
+//     type: 'video',
+//   };
+//   $.getJSON(BASE_URL,query,callback);
+// };
 
 // TASK:
 // 1. Create a `decorateResponse` function that receives the Youtube API response
@@ -45,18 +45,18 @@ const fetchVideos = function(searchTerm, callback) {
 // WILL have to dig into several nested properties!
 // TEST IT! Grab an example API response and send it into the function - make sure
 // you get back the object you want.
-const decorateResponse = function(response) {
-  const results = response.items.map(item => {
-    return {
-      id: item.id.videoId,
-      title: item.snippet.title,
-      thumbnail: item.snippet.thumbnails.medium.url,
-    };
-  });
-  console.log(results);
-  console.log(results[1].title);
-  generateVideoItemHtml(results);
-};
+// const decorateResponse = function(response) {
+//   const results = response.items.map(item => {
+//     return {
+//       id: item.id.videoId,
+//       title: item.snippet.title,
+//       thumbnail: item.snippet.thumbnails.medium.url,
+//     };
+//   });
+//   console.log(results);
+//   console.log(results[1].title);
+//   generateVideoItemHtml(results);
+// };
 
 // TASK:
 // 1. Create a `generateVideoItemHtml` function that receives the decorated object
