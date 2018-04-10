@@ -6,12 +6,14 @@ const api = (function (){
   const API_KEY = 'AIzaSyCz-XXdoMaVM8PXSJ2hUD26718OM2v_i_I';
 
   
-  const fetchVideos = function(searchTerm) {
+  const fetchVideos = function(searchTerm, next_page_token) {
+    store.originalSearchQuery = searchTerm;
     const query = {
       part: 'snippet',
       key: API_KEY,
       q: searchTerm,
       type: 'video',
+      pageToken: next_page_token,
     };
     $.getJSON(BASE_URL,query, decorateResponse);
   };
@@ -22,9 +24,11 @@ const api = (function (){
         id: item.id.videoId,
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails.medium.url,
-        channel: item.snippet.channelId,
+        channel: item.snippet.channelId, 
       };
     });
+    store.next_page = response.nextPageToken;
+    
     //console.log(results);
     //console.log(results[1].title);
     //generateVideoItemHtml(results);

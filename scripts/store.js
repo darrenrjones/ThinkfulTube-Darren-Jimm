@@ -6,11 +6,14 @@ const store = (() => {
 
   ];
 
+  let originalSearchQuery = '';
+  let next_page = '';
+
   function setVideos(arrOfDecoratedVideoObjects){
     this.videos = arrOfDecoratedVideoObjects;
   }
 
   return{
-    videos, setVideos,
+    videos, setVideos, next_page, originalSearchQuery,
   };
 })();

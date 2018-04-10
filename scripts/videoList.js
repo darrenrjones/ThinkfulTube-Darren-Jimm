@@ -27,13 +27,25 @@ const videoList = (function (){
       const searchInput = $('#search-term').val();    
       $('#search-term').val('');
   
-      api.fetchVideos(searchInput);
+      api.fetchVideos(searchInput, '');
 
+    });
+  };
+
+  const handleShowMore = function(){
+    $('.js-show-more').on('click', event => {
+      console.log('show more pressed');
+      if(store.videos[0] !== undefined){
+        api.fetchVideos(store.originalSearchQuery , store.next_page);
+      } else {
+        console.log('no initial results are shown');
+      }
     });
   };
 
   const bindEventListeners = function(){
     handleFormSubmit();
+    handleShowMore();
   };
 
 
