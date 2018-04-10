@@ -4,8 +4,8 @@
 
 // When DOM is ready:
 $(function () {
-  
-  videoList.handleFormSubmit();
+
+  videoList.bindEventListeners();
 
 });
 

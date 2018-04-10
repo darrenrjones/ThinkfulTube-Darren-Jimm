@@ -28,13 +28,16 @@ const videoList = (function (){
   
       api.fetchVideos(searchInput);
 
-      
     });
+  };
+
+  const bindEventListeners = function(){
+    handleFormSubmit();
   };
 
 
   return {
-    render, handleFormSubmit 
+    render, bindEventListeners 
   };
 
 
