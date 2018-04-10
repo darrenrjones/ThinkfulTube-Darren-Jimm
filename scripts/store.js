@@ -7,7 +7,7 @@ const store = (() => {
   ];
 
   function setVideos(arrOfDecoratedVideoObjects){
-    this.videos.push(...arrOfDecoratedVideoObjects);
+    this.videos = arrOfDecoratedVideoObjects;
   }
 
   return{

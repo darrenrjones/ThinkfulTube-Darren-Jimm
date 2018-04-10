@@ -1,5 +1,5 @@
 'use strict';
-/* global store*/
+/* global store, videoList*/
 //eslint-disable-next-line no-unused-vars
 const api = (function (){
   const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
@@ -24,10 +24,11 @@ const api = (function (){
         thumbnail: item.snippet.thumbnails.medium.url,
       };
     });
-    console.log(results);
-    console.log(results[1].title);
+    //console.log(results);
+    //console.log(results[1].title);
     //generateVideoItemHtml(results);
     store.setVideos(results);
+    videoList.render();
   };
 
   return{
