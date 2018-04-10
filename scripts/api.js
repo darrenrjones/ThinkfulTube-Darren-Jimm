@@ -1,6 +1,6 @@
 'use strict';
 /* global store*/
-
+//eslint-disable-next-line no-unused-vars
 const api = (function (){
   const BASE_URL = 'https://www.googleapis.com/youtube/v3/search';
   const API_KEY = 'AIzaSyCz-XXdoMaVM8PXSJ2hUD26718OM2v_i_I';
@@ -34,3 +34,4 @@ const api = (function (){
     fetchVideos,
   };
 }());
+
