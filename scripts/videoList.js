@@ -9,6 +9,7 @@ const videoList = (function (){
       <h3>${video.title}</h3>
       <a href="https://www.youtube.com/watch?v=${video.id}" target="_blank"><img src="${video.thumbnail}"/></a>
       <!--iframe width="560" height="315" src="https://www.youtube.com/embed/${video.id}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe-->
+      <a href="https://www.youtube.com/channel/${video.channel}"><p>More from this channel</p></a>
     </li>
   `;
    

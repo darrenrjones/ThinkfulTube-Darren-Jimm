@@ -22,6 +22,7 @@ const api = (function (){
         id: item.id.videoId,
         title: item.snippet.title,
         thumbnail: item.snippet.thumbnails.medium.url,
+        channel: item.snippet.channelId,
       };
     });
     //console.log(results);
