@@ -43,9 +43,24 @@ const videoList = (function (){
     });
   };
 
+  const handleShowPrev = function(){
+    $('.js-show-prev').on('click', event => {
+      console.log('show previous pressed');
+      if (store.videos[0] !== undefined && store.prev_page !== undefined) {
+        api.fetchVideos(store.originalSearchQuery, store.prev_page);
+      } else {
+        console.log('NO PREVIOUS PAGE EXISTS');
+      }
+    });
+
+  };
+
+
+
   const bindEventListeners = function(){
     handleFormSubmit();
     handleShowMore();
+    handleShowPrev();
   };
 
 

@@ -6,14 +6,15 @@ const api = (function (){
   const API_KEY = 'AIzaSyCz-XXdoMaVM8PXSJ2hUD26718OM2v_i_I';
 
   
-  const fetchVideos = function(searchTerm, next_page_token) {
+  const fetchVideos = function(searchTerm, page_token) {
     store.originalSearchQuery = searchTerm;
     const query = {
       part: 'snippet',
       key: API_KEY,
       q: searchTerm,
       type: 'video',
-      pageToken: next_page_token,
+      pageToken: page_token,
+
     };
     $.getJSON(BASE_URL,query, decorateResponse);
   };
@@ -28,6 +29,7 @@ const api = (function (){
       };
     });
     store.next_page = response.nextPageToken;
+    store.prev_page = response.prevPageToken;
     
     //console.log(results);
     //console.log(results[1].title);
